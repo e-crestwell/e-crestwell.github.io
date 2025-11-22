@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About – Crestrity Technologies Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About Crestrity Technologies Inc. and its CEO, Evelyn Crestwell.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <!--
+    NOTE:
+    This site is part of a fictional Capture The Flag (CTF) scenario.
+    All references to “weapons”, “devices”, and “operations” are narrative only.
+  -->
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">
+        Crestrity Technologies Inc.
+      </a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/about.html" aria-current="page">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Company Overview -->
+    <section class="hero darkmode">
+      <div class="container">
+        <h1>About Crestrity Technologies Inc.</h1>
+        <p>
+          Crestrity Technologies Inc. is a private weapons contractor operating in the grey zone
+          between kinetic operations and cognitive warfare. Officially, we call it
+          <strong>integrated effects engineering</strong> — the design of operations that
+          land twice: once on the physical map, and once in the minds of everyone watching.
+        </p>
+        <p>
+          Our clients are organizations that have learned the same lesson we have:
+          in the information age, an explosion is only the first frame. What matters is
+          the narrative that survives after the smoke clears.
+        </p>
+      </div>
+    </section>
+
+    <!-- Evelyn Crestwell -->
+    <section class="features">
+      <div class="container">
+        <h2>Leadership: Evelyn Crestwell</h2>
+        <div class="grid">
+
+          <article>
+            <h3>Chief Executive Officer</h3>
+            <p>
+              <strong>Evelyn Crestwell</strong> founded Crestrity Technologies Inc. with a simple
+              observation: most conflicts are lost long before the first device is armed.
+              Her background spans defense contracting, behavioral analytics, and
+              large-scale information operations design.
+            </p>
+            <p>
+              Inside Crestrity, she is known less as a “CEO” and more as an architect —
+              the person who insists that every deployment package includes its own
+              post-event story arc, distribution channels, and fail-safe narratives.
+            </p>
+          </article>
+
+          <article>
+            <h3>Design Philosophy</h3>
+            <p>
+              Crestwell’s doctrine can be summarized in three questions:
+            </p>
+            <ul>
+              <li><em>What is the visible event?</em></li>
+              <li><em>Who is allowed to explain it first?</em></li>
+              <li><em>Which version still feels true a week later?</em></li>
+            </ul>
+            <p>
+              Crestrity’s systems are built to answer all three at once. Under her direction,
+              the company invests equally in hardware, signal choreography,
+              and the subtle engineering of “obvious” conclusions.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- History / Timeline -->
+    <section class="mission darkmode">
+      <div class="container">
+        <h2>Operational History</h2>
+        <p>
+          Publicly available records describe Crestrity as a “specialized consulting firm”
+          focused on risk modeling and strategic communications. Internally, that description
+          is treated as the first successful field test: a clean, forgettable cover story.
+        </p>
+
+        <p>
+          While most of our work remains compartmentalized, several program codenames appear
+          across internal briefing material:
+        </p>
+        <ul>
+          <li><strong>PROJECT LAMIA</strong> — early research into dual-domain locking,
+              where physical incidents and preferred explanations are engineered together.</li>
+          <li><strong>CASCADE SERIES</strong> — iterative development of autonomous conflict simulators
+              that stress-test narrative chains under live-fire conditions.</li>
+          <li><strong>VEIL GLASS</strong> — perception-mapping frameworks used to identify
+              which observers must never see the same version of an event.</li>
+        </ul>
+
+        <p>
+          Officially, none of these programs exist. Unofficially, they define how Crestrity
+          evaluates every operation: by the silence it leaves behind, not the noise it creates.
+        </p>
+      </div>
+    </section>
+
+    <!-- Ethos -->
+    <section class="features">
+      <div class="container">
+        <h2>What We Believe</h2>
+        <p>
+          Crestrity Technologies was built on the premise that power in the modern world
+          is exercised less through force, and more through <em>framing</em>.
+          Devices can be disarmed. Networks can be rebuilt. But a conclusion that feels
+          self-evident is almost impossible to uproot.
+        </p>
+        <p>
+          Our role is to design operations that respect this reality — for clients who
+          understand that every detonation, every leak, every “accident” exists inside
+          a larger script.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>
+        &copy; <span id="year"></span> Crestrity Technologies Inc.
+        <!-- This site is part of a fictional CTF scenario and does not represent a real entity. -->
+      </small>
+    </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+
+   <!-- Fiction notice rendered as pixels (not plain text) -->
+  <div class="fiction-disclaimer" aria-hidden="true">
+    <canvas id="fiction-banner" class="fiction-banner"></canvas>
+  </div>
+
+  <script>
+    (function () {
+      const canvas = document.getElementById("fiction-banner");
+      if (!canvas || !canvas.getContext) return;
+
+      const ctx = canvas.getContext("2d");
+
+      // "This page is fiction. This page was created as fiction for a CTF."
+      const msg = atob(
+        "VGhpcyBwYWdlIGlzIGZpY3Rpb24uIFRoaXMgcGFnZSB3YXMgY3JlYXRlZCBhcyBmaWN0aW9uIGZvciBhIENURi4="
+      );
+
+      function draw() {
+        const dpr = window.devicePixelRatio || 1;
+        const width = canvas.clientWidth || window.innerWidth;
+        const height = 40;
+
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.height = height + "px";
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        // background
+        ctx.fillStyle = "#111827";
+        ctx.fillRect(0, 0, width, height);
+
+        // text
+        ctx.fillStyle = "#9ca3af";
+        ctx.font = "12px system-ui, -apple-system, BlinkMacSystemFont, sans-serif";
+        ctx.textBaseline = "middle";
+
+        const x = 16;
+        const y = height / 2;
+        ctx.fillText(msg, x, y);
+      }
+
+      draw();
+      window.addEventListener("resize", draw);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact – Crestrity Technologies Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact page of Crestrity Technologies Inc. (fictional ARG company).">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <!-- Fictional CTF disclaimer -->
+  <!-- This page is part of a CTF. The contact form does not submit any data. -->
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">
+        Crestrity Technologies Inc.
+      </a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Contact Intro -->
+    <section class="hero darkmode">
+      <div class="container">
+        <h1>Contact Crestrity Technologies Inc.</h1>
+        <p>
+          For inquiries, operational proposals, or controlled testing requests,
+          please use the form below.
+          <br><br>
+          <strong>Note:</strong> Due to strict compartmentalization protocols,
+          responses are not guaranteed.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Form (Fake) -->
+    <section class="features">
+      <div class="container">
+        <h2>Secure Inquiry Form</h2>
+        <p>
+          This form uses a unidirectional delivery channel.
+          Messages cannot be acknowledged or retrieved once submitted.
+        </p>
+
+        <form id="contact-form" class="contact-form">
+          <label>
+            Name: <input type="text" name="name" required> <br><br>
+          </label>
+
+          <label>
+            Email: <input type="email" name="email" required> <br><br>
+          </label>
+
+          <label>
+            Message: <br>
+            <textarea name="message" rows="10" cols="100" required></textarea> <br><br>
+          </label>
+
+          <button type="submit">Send</button>
+        </form>
+
+        <p id="form-response" class="form-response" style="display:none; margin-top:16px;">
+          
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>
+        &copy; <span id="year"></span> Crestrity Technologies Inc.
+        <!-- Fictional CTF company -->
+      </small>
+    </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Fake submission handler
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const response = document.getElementById('form-response');
+
+        const messages = [
+          "Transmission accepted. No confirmation will follow.",
+          "Your message has been absorbed into the system.",
+          "Request archived. Retrieval not permitted.",
+          "Signal received. Interpretation pending.",
+          "Unidirectional channel engaged. Further attempts unnecessary."
+        ];
+
+        response.style.display = "block";
+        response.textContent = messages[Math.floor(Math.random() * messages.length)];
+
+        e.target.reset();
+      });
+    </script>
+  </footer>
+
+   <!-- Fiction notice rendered as pixels (not plain text) -->
+  <div class="fiction-disclaimer" aria-hidden="true">
+    <canvas id="fiction-banner" class="fiction-banner"></canvas>
+  </div>
+
+  <script>
+    (function () {
+      const canvas = document.getElementById("fiction-banner");
+      if (!canvas || !canvas.getContext) return;
+
+      const ctx = canvas.getContext("2d");
+
+      // "This page is fiction. This page was created as fiction for a CTF."
+      const msg = atob(
+        "VGhpcyBwYWdlIGlzIGZpY3Rpb24uIFRoaXMgcGFnZSB3YXMgY3JlYXRlZCBhcyBmaWN0aW9uIGZvciBhIENURi4="
+      );
+
+      function draw() {
+        const dpr = window.devicePixelRatio || 1;
+        const width = canvas.clientWidth || window.innerWidth;
+        const height = 40;
+
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.height = height + "px";
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        // background
+        ctx.fillStyle = "#111827";
+        ctx.fillRect(0, 0, width, height);
+
+        // text
+        ctx.fillStyle = "#9ca3af";
+        ctx.font = "12px system-ui, -apple-system, BlinkMacSystemFont, sans-serif";
+        ctx.textBaseline = "middle";
+
+        const x = 16;
+        const y = height / 2;
+        ctx.fillText(msg, x, y);
+      }
+
+      draw();
+      window.addEventListener("resize", draw);
+    })();
+  </script>
+</body>
+</html>

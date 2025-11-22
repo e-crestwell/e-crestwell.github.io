@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crestrity Technologies Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Crestrity Technologies Inc. — integrated kinetic and cognitive weapons for the information age.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <!--
+    NOTE:
+    This site is part of a fictional Capture The Flag (CTF) scenario.
+    All references to “weapons”, “devices”, and “operations” are narrative only.
+    No real-world services are provided.
+  -->
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">
+        Crestrity Technologies Inc.
+      </a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero darkmode">
+      <div class="container">
+        <h1>Where Kinetic Firepower Meets Cognitive Warfare</h1>
+        <p>
+          Crestrity Technologies Inc. is a private weapons contractor operating at the junction of
+          physical and informational conflict. We design systems that detonate in two domains:
+          <strong>on impact</strong> and <strong>in perception</strong>.
+        </p>
+        <p>
+          From compact field-deployable devices to theatre-scale influence architectures,
+          our portfolio is engineered for clients who understand that in the modern battlespace,
+          destroying a target is not enough — you must also rewrite how the event is remembered.
+        </p>
+      </div>
+    </section>
+
+    <!-- Divisions -->
+    <section class="features">
+      <div class="container">
+        <h2>Operational Divisions</h2>
+        <div class="grid">
+
+          <article>
+            <h3>Kinetic Systems Division</h3>
+            <p>
+              Responsible for the design and integration of controlled-effect devices and
+              modular delivery platforms. Our units are built for precision timing,
+              predictable blast patterns, and seamless synchronization with upstream planning cells.
+              <br><br>
+              Each deployment package is paired with a tailored information layer —
+              no action is isolated, everything is part of a sequence.
+            </p>
+          </article>
+
+          <article>
+            <h3>Cognitive Operations Division</h3>
+            <p>
+              Dedicated to shaping narratives before, during, and after impact.
+              We orchestrate perception flows across feeds, channels, and closed communities,
+              ensuring that when an event occurs, the story attached to it is already in motion.
+              <br><br>
+              Our teams specialize in making specific outcomes feel inevitable,
+              and alternative interpretations feel irrational.
+            </p>
+          </article>
+
+          <article>
+            <h3>Systems Integration Cell</h3>
+            <p>
+              The point at which hardware and narrative are fused.
+              Here, detonation timing, visual signatures, and post-event information
+              are choreographed into a single operation.
+              <br><br>
+              Internally, this process is known as <em>“dual-domain locking”</em>:
+              the moment when a physical incident and its preferred explanation become inseparable.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="mission darkmode">
+      <div class="container">
+        <h2>Field Testing & Containment Protocols</h2>
+        <p>
+          Crestrity systems are evaluated in tightly controlled environments using live devices
+          and fully instrumented perception corridors. Every test cycle analyzes not only
+          structural response, but also how observers describe, share, and rationalize the event.
+        </p>
+        <p>
+          Selected units are equipped with multi-stage safety architectures and remote
+          disarm interfaces for red-team exercises and training scenarios.
+          In the unlikely case that you are reading this as part of such an exercise:
+          <strong>remember that every second you spend on the device,
+          someone else is watching the story unfold.</strong>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>
+        &copy; <span id="year"></span> Crestrity Technologies Inc.
+        <!-- In-universe text -->
+        <!-- For training and simulation use only. -->
+      </small>
+    </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+
+  <!-- Fiction notice rendered as pixels (not plain text) -->
+  <div class="fiction-disclaimer" aria-hidden="true">
+    <canvas id="fiction-banner" class="fiction-banner"></canvas>
+  </div>
+
+  <script>
+    (function () {
+      const canvas = document.getElementById("fiction-banner");
+      if (!canvas || !canvas.getContext) return;
+
+      const ctx = canvas.getContext("2d");
+
+      // "This page is fiction. This page was created as fiction for a CTF."
+      const msg = atob(
+        "VGhpcyBwYWdlIGlzIGZpY3Rpb24uIFRoaXMgcGFnZSB3YXMgY3JlYXRlZCBhcyBmaWN0aW9uIGZvciBhIENURi4="
+      );
+
+      function draw() {
+        const dpr = window.devicePixelRatio || 1;
+        const width = canvas.clientWidth || window.innerWidth;
+        const height = 40;
+
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.height = height + "px";
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        // background
+        ctx.fillStyle = "#111827";
+        ctx.fillRect(0, 0, width, height);
+
+        // text
+        ctx.fillStyle = "#9ca3af";
+        ctx.font = "12px system-ui, -apple-system, BlinkMacSystemFont, sans-serif";
+        ctx.textBaseline = "middle";
+
+        const x = 16;
+        const y = height / 2;
+        ctx.fillText(msg, x, y);
+      }
+
+      draw();
+      window.addEventListener("resize", draw);
+    })();
+  </script>
+</body>
+</html>
+
+
+
+</body>
+</html>
